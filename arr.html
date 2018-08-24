@@ -1,0 +1,73 @@
+<script>
+  var arrOne = [1, 2, 3, 4, 5, 6, 7, 8, 5];
+  var arrTwo = [1, 2, 3, 4, 5, 6, 7, 8];
+
+
+  function findFirstDuplicate(arr) {
+    var data = {};
+
+    for (let i = 0; i < arr.length; i++) {
+      if (data.hasOwnProperty(arr[i])) {
+        return arr[i];
+      } else {
+        data[arr[i]] = 1;
+      }
+    }
+    return -1;
+  }
+
+  console.log(findFirstDuplicate(arrOne));
+  console.log(findFirstDuplicate(arrTwo));
+
+
+
+
+  var strOne = 'monkeymonkeyamonkey';
+  var strTwo = 'monkeymonkeymonkey';
+
+  function firstUnique(str) {
+    var data = {};
+
+    for (let i = 1; i < str.length; i++) {
+      var s = str[i];
+      if (data.hasOwnProperty(s)) {
+        data[s] = 2;
+      } else {
+        data[s] = 1;
+      }
+    }
+
+    for (var key in data) {
+      if (data[key] === 1) {
+        return key;
+      }
+    }
+    return '_';
+  }
+
+  console.log(firstUnique(strOne));
+  console.log(firstUnique(strTwo));
+
+  var a = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]];
+
+  function rotateImage(matrix) {
+    var results = [];
+    var N = matrix.length;
+    // we use N for both loops because we are looking at this from a  
+    // column and row perspective rather than nested arrays
+    for (var col = 0; col < N; col++) {
+      var inner = [];
+      for (var row = 0; row < N; row++) {
+        var item = matrix[row][col];
+        inner.unshift(item);
+      }
+      results.push(inner);
+    }
+    return results;
+  }
+console.log(rotateImage(a));
+
+
+</script>
