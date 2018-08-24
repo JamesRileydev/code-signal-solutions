@@ -61,6 +61,47 @@
     console.log(firstNotRepeatingCharacter(strB));
 
 
+    arrOne = [1, 2, 3, 4, 6, 5, 6];
+
+    function firstDup(arr) {
+      var data = {};
+      for (let i = 0; i < arr.length; i++) {
+        if (data.hasOwnProperty(arr[i])) {
+          return arr[i];
+        } else {
+          data[arr[i]] = 1;
+        }
+      }
+      return -1;
+    }
+
+    console.log(firstDup(arrOne));
+
+
+
+
+    var strOne = "abcabcabc";
+
+    function firstUnigue(str) {
+      var data = {};
+      for (let i = 0; i < str.length; i++) {
+        if (data.hasOwnProperty(str[i])) {
+          data[str[i]] = 2;
+        } else {
+          data[str[i]] = 1;
+        }
+      }
+
+      for (var key in data) {
+        if (data[key] === 1) {
+          return key;
+        }
+      }
+      return '_';
+    }
+
+    console.log(firstUnigue(strOne));
+
 
   </script>
 </body>
